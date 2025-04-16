@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>La GoinFrance - Forum </title>
+   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+   <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+   <header class="header">
+      <h1>La GoinFrance</h1>
+      
+      <div class="header-actions">
+         <button id="logout-btn">Déconnexion</button>
+         <a href="create-post" class="btn">Créer un post</a>
+      </div>
+   </header>
+
+   <main class="posts-container">
+      {{range .posts}}
+      <article class="post-card">
+         <div class="post-header">
+            <h2>{{.TitlePost}}</h2>
+            <span class="post-theme">{{.Theme}}</span>
+         </div>
+         <p class="post-category">{{.ContentCategory}}</p>
+
+         <div class="post-comments">
+            <h3>Commentaires</h3>
+            {{range .CommentsUser}}
+               <p><strong>Anonyme :</strong> {{.Content}}</p>
+            {{end}}
+
+            <form action="/comments" method="POST" class="comment-form">
+               <input type="text" name="content" placeholder="Ajouter un commentaire..." required>
+               <input type="hidden" name="PostsID" value="{{.PostsID}}">
+               <button type="submit">Commenter</button>
+            </form>
+         </div>
+      </article>
+      {{end}}
+   </main>
+
+   <script>
+      document.getElementById("logout-btn").addEventListener("click", function () {
+         Cookies.remove('token');
+         window.location.href = "/logout";
+      });
+   </script>
+</body>
+</html>

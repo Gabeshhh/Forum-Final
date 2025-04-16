@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="/styles.css"/>
+   <title>La GoinFrance - Connexion</title>
+</head>
+<body>
+   <h2 id="TextWelcome">La GoinFrance</h2>
+   <div class="container" id="container">
+      <!-- Inscription -->
+      <div class="form-container sign-up-container">
+         <form action="/register" method="post" id="signup-form">
+            <h1 class="signup">Crée un compte</h1>
+            <span>ou utilise ton email pour te connecter</span>
+            {{ if .error }}
+               <p style="color: red;">{{ .error }}</p>
+            {{ end }}
+            {{ if .success }}
+               <p style="color: green;">{{ .success }}</p>
+            {{ end }}
+            <input type="text" placeholder="Username" name="username" required />
+            <input type="email" placeholder="Email" name="email" required />
+            <input type="password" placeholder="Password" id="password" name="password" required />
+            <input type="password" placeholder="Confirm Password" id="confirm_password" required />
+            <button type="submit">Inscription</button>
+         </form>
+      </div>
+
+      <!-- Connexion -->
+      <div class="form-container sign-in-container">
+         <form action="/login" method="post">
+            <h1>Connexion</h1>
+            <span>ou bien crée ton compte :)</span>
+            <input type="email" placeholder="Email" name="email" required />
+            <input type="password" placeholder="Password" name="password" required />
+            <a href="#">Mot de passe oublié ?</a>
+            <button>Connexion</button>
+         </form>
+      </div>
+
+      <div class="overlay-container">
+         <div class="overlay">
+            <div class="overlay-panel overlay-left">
+               <h1>Déjà un compte ?</h1>
+               <p>Pour te connecter avec tes identifiants c'est par ici </p>
+               <button class="ghost" id="signIn">Connexion</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+               <h1>Salut, bg ! </h1>
+               <p>Si t'es pas renseigné dans notre base de données crée toi un compte</p>
+               <button class="ghost" id="signUp">Inscription</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- crypto-js -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+   <!-- Animation des panneaux -->
+   <script>
+      const signUpButton = document.getElementById("signUp");
+      const signInButton = document.getElementById("signIn");
+      const container = document.getElementById("container");
+
+      signUpButton.addEventListener("click", () => {
+         container.classList.add("right-panel-active");
+      });
+
+      signInButton.addEventListener("click", () => {
+         container.classList.remove("right-panel-active");
+      });
+   </script>
+
+   <!-- Validation mot de passe -->
+   <script>
+      var password = document.getElementById("password");
+      var confirm_password = document.getElementById("confirm_password");
+
+      function validatePassword() {
+         if (password.value !== confirm_password.value) {
+            confirm_password.setCustomValidity("Les mots de passe ne correspondent pas.");
+         } else {
+            confirm_password.setCustomValidity("");
+         }
+      }
+
+      password.onchange = validatePassword;
+      confirm_password.onkeyup = validatePassword;
+   </script>
+</body>
+</html>

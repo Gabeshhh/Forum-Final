@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>La GoinFrance - Poste</title>
+      <link rel="stylesheet" href="/styles.css">
+   </head>
+   <body>
+      <h1>Création de Poste</h1>
+      <form id="post-form" action="/sendPost" method="post">
+         <div>
+            <label for="post-title">Titre :</label>
+            <input type="text" id="post-title" name="postUserTitle" required>
+         </div>
+         <div>
+            <label for="post-content">Contenu :</label>
+            <textarea id="post-content" name="postUserContent" rows="5" required></textarea>
+         </div>
+         <label for="pet-select">Choose spec:</label>
+         <select name="spec" id="spec-select">
+            <option value="">--Please choose an option--</option>
+            <option value="Info">Informatique</option>
+            <option value="Audio">Audio</option>
+            <option value="Visual">Visual</option>
+            <option value="Makette">marqueting</option>
+            <option value="Archi">Architecture</option>
+            <option value="Cyber">cybersécurité</option>
+         </select>
+         <button type="submit">Créer le Poste</button>
+      </form>
+   </body>
+</html>
