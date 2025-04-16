@@ -2,7 +2,7 @@
 ![Logo](https://www.pngmart.com/files/7/Forum-PNG-Clipart.png)
 
 
-# Nerd_Methology
+# La GoinFrance
 
 Ce projet consiste à créer un forum web qui permet :
 
@@ -13,11 +13,11 @@ Filtrer les messages.
 
 ## Auteurs
 
-- [@Clement_GARCIA](https://ytrack.learn.ynov.com/git/gclement)
+- [@Gabriel_LAUGIER]
 
-- [@Nils_JAUDON](https://ytrack.learn.ynov.com/git/jnils)
+- [@Quentin_LETESSIER]
 
-- [@Yanisse_ISMAILI](https://ytrack.learn.ynov.com/git/iyanisse)
+- [@Noa_PERRIN]
 ## ❓Informations
 
 Quelle version de GO avoir : go1.20.4
@@ -27,7 +27,7 @@ Quelle version de GO avoir : go1.20.4
 Comment run le projet ?
 
 ```bash
-git clone https://github.com/YanisseIsmaili/FORUM.git
+git clone https://github.com/Gabeshhh/Forum-Final.git
 ```
 ```bash
 cd FORUM
@@ -37,12 +37,11 @@ go run .
 
 ```
 
-Puis allez sur le site : http://localhost:8089/authentificationfield
+Puis allez sur le site : http://localhost:8089/authentificationfield (il y'a un lien dans la console ^^)
 Nous vous invitons a crée un compte, Ajouté votre premier Post et commenter ceux des autres
+
+
 ## 🚀 A PROPOS DE NOUS
 Nous trois dévellopeur débutant dans la programation.
 
-## 📌CONTACTEZ NOUS :
-
-Pour un support, email nils.jaudon@ynov.com ainsi clement.garcia@ynov.com et yanisse.ismaili@ynov.com vous pouvez nous joindre.
-
+# MERCI A VOUS ! LE PROJET ÉTAIT COMPLIQUÉ HEIN
